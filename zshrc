@@ -11,7 +11,7 @@ ZSH_CUSTOM=~/.zsh
 plugins=(git ssh-agent wp-cli common-aliases iwhois zsh_reload)
 
 # Export our paths
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -20,12 +20,17 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nano'
 else
-  export EDITOR='atom'
-  export VISUAL='atom --launch --wait'
+  export EDITOR='subl'
+  export VISUAL='subl --launch --wait'
 fi
 
 # Set $DISPLAY for Xming
 export DISPLAY=localhost:0.0
+
+# Composer
+if [ -r ~/.composer/vendor/bin ]; then
+  export PATH=$HOME/.composer/vendor/bin:$PATH
+fi
 
 # nvm
 if [ -r ~/.nvm ]; then
@@ -44,7 +49,23 @@ if [ -r ~/.rbenv/bin ]; then
   eval "$(rbenv init -)"
 fi
 
+# WP CLI
+export WP_CLI_LOGIN_LAUNCH_WITH="/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe"
+
 # Aliases
 if [ -r ~/.aliases ]; then
   source ~/.aliases
 fi
+
+# Homestead
+function homestead() {
+    ( cd ~/dev/web/homestead && vagrant.exe $* )
+}
+
+# Trellis
+function trellis() {
+    ( cd ~/dev/web/trellis && vagrant.exe $* )
+}
+
+# Enable Vagrant to access Windows outside of WSL
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
