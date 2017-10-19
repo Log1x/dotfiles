@@ -8,7 +8,7 @@ ZSH_THEME="tendency"
 ZSH_CUSTOM=~/.zsh
 
 # Set plugins to load
-plugins=(git ssh-agent wp-cli common-aliases iwhois zsh_reload)
+plugins=(git ssh-agent common-aliases zsh_reload)
 
 # Export our paths
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -26,6 +26,12 @@ fi
 
 # Set $DISPLAY for Xming
 export DISPLAY=localhost:0.0
+
+# Enable Vagrant to access Windows outside of WSL
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+
+# Use Firefox with wp-cli-login-command
+export WP_CLI_LOGIN_LAUNCH_WITH="/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe"
 
 # Composer
 if [ -r ~/.composer/vendor/bin ]; then
@@ -49,23 +55,7 @@ if [ -r ~/.rbenv/bin ]; then
   eval "$(rbenv init -)"
 fi
 
-# WP CLI
-export WP_CLI_LOGIN_LAUNCH_WITH="/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe"
-
 # Aliases
 if [ -r ~/.aliases ]; then
   source ~/.aliases
 fi
-
-# Homestead
-function homestead() {
-    ( cd ~/dev/web/homestead && vagrant.exe $* )
-}
-
-# Trellis
-function trellis() {
-    ( cd ~/dev/web/trellis && vagrant.exe $* )
-}
-
-# Enable Vagrant to access Windows outside of WSL
-export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
