@@ -1,61 +1,32 @@
-# Path to your oh-my-zsh installation
-export ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load
-ZSH_THEME="tendency"
-
-# Set custom zsh directory
-ZSH_CUSTOM=~/.zsh
-
-# Set plugins to load
-plugins=(git ssh-agent common-aliases zsh_reload)
-
-# Export our paths
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
-# Load oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nano'
-else
-  export EDITOR='subl'
-  export VISUAL='subl --launch --wait'
-fi
-
-# Set $DISPLAY for Xming
-export DISPLAY=localhost:0.0
-
-# Enable Vagrant to access Windows outside of WSL
-export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
-
-# Use Firefox with wp-cli-login-command
-export WP_CLI_LOGIN_LAUNCH_WITH="/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe"
-
-# Composer
-if [ -r ~/.composer/vendor/bin ]; then
-  export PATH=$HOME/.composer/vendor/bin:$PATH
-fi
-
-# nvm
-if [ -r ~/.nvm ]; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-fi
-
-# Yarn
-if [ -r ~/.yarn/bin ]; then
-  export PATH=$HOME/.yarn/bin:$PATH
-fi
-
-# rbenv
-if [ -r ~/.rbenv/bin ]; then
-  export PATH=$HOME/.rbenv/bin:$PATH
-  eval "$(rbenv init -)"
-fi
+# Antigen
+[[ -f ~/.zsh/antigen.zsh ]] && source ~/.zsh/antigen.zsh
 
 # Aliases
-if [ -r ~/.aliases ]; then
-  source ~/.aliases
-fi
+[[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
+
+# Environment
+[[ -f ~/.zsh/env.zsh ]] && source ~/.zsh/env.zsh
+
+# Windows Subsystem for Linux
+[[ -f ~/.zsh/wsl.zsh ]] && source ~/.zsh/wsl.zsh
+
+# Config
+[[ -f ~/.zsh/config.zsh ]] && source ~/.zsh/config.zsh
+
+# Editor
+[[ -f ~/.zsh/editor.zsh ]] && source ~/.zsh/editor.zsh
+
+# nvm
+[[ -f ~/.zsh/editor.zsh ]] && source ~/.zsh/nvm.zsh
+
+# Yarn
+[[ -f ~/.zsh/yarn.zsh ]] && source ~/.zsh/yarn.zsh
+
+# rbenv
+[[ -f ~/.zsh/rbenv.zsh ]] && source ~/.zsh/rbenv.zsh
+
+# Composer
+[[ -f ~/.zsh/composer.zsh ]] && source ~/.zsh/composer.zsh
+
+# Terminus
+[[ -f ~/.zsh/terminus.zsh ]] && source ~/.zsh/terminus.zsh
