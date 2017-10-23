@@ -12,12 +12,6 @@ alias desktop='cd ~/desktop'
 alias dev='cd ~/dev'
 alias sites='cd ~/dev/web/sites'
 
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ~='cd ~'
-
 # APPLICATIONS
 alias download='aria2c -m 0'
 
