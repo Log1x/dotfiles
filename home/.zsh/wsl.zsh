@@ -1,4 +1,4 @@
-# Set $DISPLAY for Xming
+# Set DISPLAY for Xming
 export DISPLAY=localhost:0.0
 
 # Enable Vagrant to access Windows outside of WSL
@@ -13,5 +13,5 @@ alias choco='choco.exe'
 alias firefox='firefox.exe'
 alias cscript='cscript.exe'
 alias ipconfig='ipconfig.exe'
-alias flushdns="ipconfig.exe /flushdns"
+alias flushdns='ipconfig.exe /flushdns'
 alias opendir='cmd.exe /c start .'

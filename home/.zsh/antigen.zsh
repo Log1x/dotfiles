@@ -9,9 +9,10 @@ antigen bundle git
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle command-not-found
+antigen bundle mafredri/zsh-async
 
 # Theme
-antigen theme carloscuesta/materialshell materialshell
+antigen bundle sindresorhus/pure
 
 # Apply our settings
 antigen apply
