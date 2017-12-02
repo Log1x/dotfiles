@@ -1,12 +1,3 @@
-# Workaround for issue: https://github.com/Microsoft/WSL/issues/2448
-if ! mount | grep -q "D: on /mnt/d type drvfs (rw,noatime,fallback=1)"; then
-  echo 'Remount of /mnt/d required due to #2448 bug...'
-  pushd ~ > /dev/null
-  sudo umount /mnt/d
-  sudo mount -t drvfs -o noatime,fallback=1 D: /mnt/d
-  popd > /dev/null
-fi
-
 # Set DISPLAY for Xming
 export DISPLAY=localhost:0.0
 
