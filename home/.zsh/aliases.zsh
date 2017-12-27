@@ -7,10 +7,10 @@ alias tomato='ssh root@192.168.1.1'
 
 # SHORTCUTS
 alias home='cd ~'
-alias storage='cd ~/storage'
-alias desktop='cd ~/desktop'
-alias dev='cd ~/dev'
-alias sites='cd ~/dev/web/sites'
+alias storage='cd ~/Storage'
+alias desktop='cd ~/Desktop'
+alias dev='cd ~/Development'
+alias sites='cd ~/Development/web/sites'
 
 # APPLICATIONS
 alias download='aria2c -m 0'
@@ -39,7 +39,6 @@ alias path='echo -e ${PATH//:/\\n}'
 
 # NETWORK
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
-alias localip='ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk {print $2}'
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
 # VALET
@@ -48,3 +47,6 @@ alias uv='valet unlink && valet forget && valet unsecure'
 
 # GIT
 alias gm='git commit -m'
+
+# MAC
+alias cask='brew cask'

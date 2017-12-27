@@ -7,9 +7,6 @@
 # Environment
 [[ -f ~/.zsh/env.zsh ]] && source ~/.zsh/env.zsh
 
-# Windows Subsystem for Linux
-[[ -f ~/.zsh/wsl.zsh ]] && source ~/.zsh/wsl.zsh
-
 # Config
 [[ -f ~/.zsh/config.zsh ]] && source ~/.zsh/config.zsh
 

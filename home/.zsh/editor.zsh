@@ -2,6 +2,6 @@
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nano'
 else
-  export EDITOR='subl'
-  export VISUAL='subl --launch --wait'
+  export EDITOR='code'
+  export VISUAL='code'
 fi
