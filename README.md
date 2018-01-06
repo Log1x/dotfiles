@@ -7,7 +7,7 @@ I highly recommend [homesick](https://github.com/technicalpickles/homesick) for 
 ## Installation
 
 ```sh
-$ sudo apt install zsh zsh-antigen
+$ brew install antigen
 $ gem install homesick
 $ homesick clone log1x/dotfiles
 $ homesick link dotfiles
