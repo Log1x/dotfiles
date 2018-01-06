@@ -1,5 +1,5 @@
 # SSH
-alias centos='ssh root@ftp.log1x.com -p 2222'
+alias centos='ssh root@server.hostleaf.net -p 2222'
 alias xen='ssh root@158.69.27.186 -p 22'
 alias pbx='ssh root@voice.log1x.com -p 22'
 alias vpn='ssh root@vpn.log1x.com -p 22'
@@ -11,6 +11,8 @@ alias storage='cd ~/Storage'
 alias desktop='cd ~/Desktop'
 alias dev='cd ~/Development'
 alias sites='cd ~/Development/web/sites'
+alias work='cd ~/Development/work'
+alias forks='cd ~/Development/git/forks'
 
 # APPLICATIONS
 alias download='aria2c -m 0'

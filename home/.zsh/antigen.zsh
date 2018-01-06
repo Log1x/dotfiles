@@ -12,7 +12,8 @@ antigen bundle command-not-found
 antigen bundle mafredri/zsh-async
 
 # Theme
-antigen bundle sindresorhus/pure
+antigen bundle tylerreckart/hyperzsh
+antigen theme tylerreckart/hyperzsh hyperzsh.zsh-theme
 
 # Apply our settings
 antigen apply
