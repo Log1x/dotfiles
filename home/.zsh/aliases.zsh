@@ -19,12 +19,9 @@ alias download='aria2c -m 0'
 
 # MISCELLANEOUS
 alias q='exit'
-alias c='clear'
 alias cls='clear'
-alias mv='mv --verbose'
 
 # DIRECTORIES
-alias l="ls -lF ${colorflag}"
 alias la="ls -laF ${colorflag}"
 
 # GREP
@@ -34,7 +31,7 @@ alias egrep='egrep --color=auto'
 
 # DATETIME
 alias week='date +%V'
-alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+alias timer='echo "Timer started. Stop with Cmd-D." && date && time cat && date'
 
 # PATH
 alias path='echo -e ${PATH//:/\\n}'
@@ -48,7 +45,17 @@ alias v='valet link && valet park && valet secure'
 alias uv='valet unlink && valet forget && valet unsecure'
 
 # GIT
+alias ga='git add'
 alias gm='git commit -m'
+alias gp='git push'
+alias gpu='git pull'
+
+# ZSHMARKS
+alias g='jump'
+alias s='bookmark'
+alias d='deletemark'
+alias p='showmarks'
+alias l='showmarks'
 
 # MAC
 alias cask='brew cask'
