@@ -5,57 +5,88 @@ alias pbx='ssh root@voice.log1x.com -p 22'
 alias vpn='ssh root@vpn.log1x.com -p 22'
 alias tomato='ssh root@192.168.1.1'
 
-# SHORTCUTS
+# Shortcuts
 alias home='cd ~'
 alias storage='cd ~/Storage'
 alias desktop='cd ~/Desktop'
 alias dev='cd ~/Development'
-alias sites='cd ~/Development/web/sites'
-alias work='cd ~/Development/work'
+alias sites='cd ~/Development/web/'
 alias forks='cd ~/Development/git/forks'
 
-# APPLICATIONS
+# Apps
 alias download='aria2c -m 0'
+alias firefox='/Applications/Firefox.app/Contents/MacOS/firefox'
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
 
-# MISCELLANEOUS
-alias q='exit'
-alias cls='clear'
+# List all files colorized in long format
+alias l="ls -lF ${colorflag}"
 
-# DIRECTORIES
+# List all files colorized in long format, including dot files
 alias la="ls -laF ${colorflag}"
 
-# GREP
+# List only directories
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
+
+# Always use color output for `ls`
+alias ls="command ls ${colorflag}"
+
+# Always enable colored `grep` output
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# DATETIME
-alias week='date +%V'
-alias timer='echo "Timer started. Stop with Cmd-D." && date && time cat && date'
+# Enable aliases to be sudo'ed
+alias sudo='sudo '
 
-# PATH
+# Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
-# NETWORK
-alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
-# VALET
+# Show active network interfaces
+alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+# Clean up LaunchServices to remove duplicates in the “Open With” menu
+alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Valet
 alias v='valet link && valet park && valet secure'
 alias uv='valet unlink && valet forget && valet unsecure'
 
-# GIT
+# Git
 alias ga='git add'
 alias gm='git commit -m'
 alias gp='git push'
 alias gpu='git pull'
 
-# ZSHMARKS
+# zshmarks
 alias g='jump'
 alias s='bookmark'
 alias d='deletemark'
 alias p='showmarks'
 alias l='showmarks'
 
-# MAC
+# Empty the Trash on all mounted volumes and the main HDD.
+# Also, clear Apple’s System Logs to improve shell startup speed.
+# Finally, clear download history from quarantine.
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
+
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# Miscellaneous
 alias cask='brew cask'
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; cask upgrade; brew cleanup; cask cleanup;'
+alias q='exit'
+alias cls='clear'
