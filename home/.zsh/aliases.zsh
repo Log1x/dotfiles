@@ -1,8 +1,4 @@
 # SSH
-alias centos='ssh root@server.hostleaf.net -p 2222'
-alias xen='ssh root@158.69.27.186 -p 22'
-alias pbx='ssh root@voice.log1x.com -p 22'
-alias vpn='ssh root@vpn.log1x.com -p 22'
 alias tomato='ssh root@192.168.1.1'
 
 # Shortcuts
@@ -51,7 +47,7 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 
 # Flush Directory Service cache
-alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+alias flush="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder; sudo killall mDNSResponderHelper"
 
 # Clean up LaunchServices to remove duplicates in the “Open With” menu
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"

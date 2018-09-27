@@ -5,52 +5,52 @@
 module.exports = {
   config: {
     // Update channel
-    updateChannel: 'stable',
+    updateChannel: "stable",
 
     // default font size in pixels for all tabs
     fontSize: 12,
 
     // font family with optional fallbacks
-    fontFamily: 'Hack',
+    fontFamily: "Hack, Fira Code, Arial",
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-    cursorColor: 'rgba(255, 255, 255, 0.8)',
+    cursorColor: "rgba(255, 255, 255, 0.8)",
 
     // `BEAM` for |, `UNDERLINE` for _, `BLOCK` for █
-    cursorShape: 'BEAM',
+    cursorShape: "BEAM",
 
     // Blink the cursor
-    cursorBlink: false,
+    cursorBlink: true,
 
     // Color of the text
-    foregroundColor: '#f4f4f4',
+    foregroundColor: "#f4f4f4",
 
     // Terminal background color
-    backgroundColor: '#141414',
+    backgroundColor: "#141414",
 
     // Border color (window, tabs)
-    borderColor: '#111111',
+    borderColor: "#111111",
 
     // Custom Window CSS
-    css: '',
+    css: "",
 
     // Custom Terminal CSS
-    termCSS: '',
+    termCSS: "",
 
     // Show the Hamburger menu
-    showHamburgerMenu: '',
+    showHamburgerMenu: "",
 
     // Show the minimize, maximize and close buttons
-    showWindowControls: '',
+    showWindowControls: "",
 
-    // custom padding (css format, i.e.: `top right bottom left`)
-    padding: '0.75em',
+    // Window Padding
+    padding: "0.75em",
 
     // Color Palette
     colors: {},
 
     // Default Shell
-    shell: '',
+    shell: "",
 
     // Shell Arguments
     shellArgs: [],
@@ -59,15 +59,28 @@ module.exports = {
     env: {},
 
     // Bell
-    bell: 'false',
+    bell: "false",
 
     // Copy text on selection
-    copyOnSelect: true,
+    copyOnSelect: true
+  },
+
+  // Hyper Tabs
+  hyperTabs: {
+    closeAlign: "right",
+    trafficButtons: true,
+    tabIcons: true
   },
 
   // Plugins
-  plugins: ["hyperterm-tabs", "hyperlinks", "hyper-tab-icons", "hyperblue-vibrancy"],
-  localPlugins: [],
+  plugins: [
+    "hyperblue-vibrancy",
+    "hyper-tabs-enhanced",
+    "hyper-statusline",
+    "hyperlinks",
+    "hypercwd",
+    "hyperterm-1password"
+  ],
 
   // Keybinds
   keymaps: {}
