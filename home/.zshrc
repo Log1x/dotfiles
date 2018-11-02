@@ -13,6 +13,9 @@
 # Editor
 [[ -f ~/.zsh/editor.zsh ]] && source ~/.zsh/editor.zsh
 
+# Functions
+[[ -f ~/.zsh/functions.zsh ]] && source ~/.zsh/functions.zsh
+
 # nvm
 [[ -f ~/.zsh/editor.zsh ]] && source ~/.zsh/nvm.zsh
 
