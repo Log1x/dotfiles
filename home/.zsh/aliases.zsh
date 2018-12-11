@@ -7,6 +7,7 @@ alias storage='cd ~/Storage'
 alias desktop='cd ~/Desktop'
 alias dev='cd ~/Development'
 alias sites='cd ~/Development/web/'
+alias master='cd ~/Development/git/master'
 alias forks='cd ~/Development/git/forks'
 
 # Apps
@@ -26,6 +27,10 @@ alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
+
+# Alias for Color LS <https://github.com/athityakumar/colorls>
+alias lc='colorls'
+alias lca='colorls -la'
 
 # Always enable colored `grep` output
 alias grep='grep --color=auto'
@@ -69,8 +74,7 @@ alias gpu='git pull'
 alias g='jump'
 alias s='bookmark'
 alias d='deletemark'
-alias p='showmarks'
-alias l='showmarks'
+alias lm='showmarks'
 
 # Empty the Trash on all mounted volumes and the main HDD.
 # Also, clear Apple’s System Logs to improve shell startup speed.
