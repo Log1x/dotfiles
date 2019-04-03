@@ -13,8 +13,16 @@ $ homesick clone log1x/dotfiles
 $ homesick link dotfiles
 ```
 
+## iTerm 2
+
+Import the theme located at `~/.themes/material-design-dark.itermcolors`
+
 ## Font
 
 ```sh
 brew cask install caskroom/fonts/font-hack
 ```
+
+## Debug
+
+If Antigen is not updating, run `antigen reset` and restart your terminal.

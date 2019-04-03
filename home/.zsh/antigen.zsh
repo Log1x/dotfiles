@@ -12,8 +12,7 @@ antigen bundle mafredri/zsh-async
 antigen bundle jocelynmallon/zshmarks
 
 # Theme
-antigen bundle tylerreckart/hyperzsh
-antigen theme tylerreckart/hyperzsh hyperzsh.zsh-theme
+antigen bundle therealklanni/purity
 
 # Apply our settings
 antigen apply
