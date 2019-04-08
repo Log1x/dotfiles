@@ -4,6 +4,9 @@
 # Aliases
 [[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
 
+# Development
+[[ -f ~/.zsh/dev.zsh ]] && source ~/.zsh/dev.zsh
+
 # Environment
 [[ -f ~/.zsh/env.zsh ]] && source ~/.zsh/env.zsh
 
