@@ -11,21 +11,12 @@ alias forks='cd ~/Development/git/forks'
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
 
-# List all files colorized in long format
-alias l="ls -lF ${colorflag}"
-
-# List all files colorized in long format, including dot files
-alias la="ls -laF ${colorflag}"
-
-# List only directories
-alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
-
-# Always use color output for `ls`
-alias ls="command ls ${colorflag}"
-
-# Alias for Color LS <https://github.com/athityakumar/colorls>
-alias lc='colorls'
-alias lca='colorls -la'
+# Replacements
+alias ls='exa -la'
+alias cat='bat'
+alias top='vtop'
+alias kill='fkill'
+alias find='fd'
 
 # Always enable colored `grep` output
 alias grep='grep --color=auto'
