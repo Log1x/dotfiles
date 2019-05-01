@@ -1,9 +1,6 @@
 # Antigen
 [[ -f ~/.zsh/antigen.zsh ]] && source ~/.zsh/antigen.zsh
 
-# Aliases
-[[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
-
 # Environment
 [[ -f ~/.zsh/env.zsh ]] && source ~/.zsh/env.zsh
 
@@ -13,11 +10,14 @@
 # Functions
 [[ -f ~/.zsh/functions.zsh ]] && source ~/.zsh/functions.zsh
 
+# Aliases
+[[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
+
 # hub
-[[ -f ~/.zsh/functions.zsh ]] && source ~/.zsh/hub.zsh
+[[ -f ~/.zsh/hub.zsh ]] && source ~/.zsh/hub.zsh
 
 # nvm
-[[ -f ~/.zsh/editor.zsh ]] && source ~/.zsh/nvm.zsh
+[[ -f ~/.zsh/nvm.zsh ]] && source ~/.zsh/nvm.zsh
 
 # rbenv
 [[ -f ~/.zsh/rbenv.zsh ]] && source ~/.zsh/rbenv.zsh
