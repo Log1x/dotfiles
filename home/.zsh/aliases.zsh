@@ -1,6 +1,3 @@
-# SSH
-alias tomato='ssh root@192.168.1.1'
-
 # Shortcuts
 alias home='cd ~'
 alias storage='cd ~/Storage'
@@ -11,8 +8,6 @@ alias master='cd ~/Development/git/master'
 alias forks='cd ~/Development/git/forks'
 
 # Apps
-alias download='aria2c -m 0'
-alias firefox='/Applications/Firefox.app/Contents/MacOS/firefox'
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
 
@@ -64,6 +59,13 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 alias v='valet link && valet park && valet secure'
 alias uv='valet unlink && valet forget && valet unsecure'
 
+# Laravel
+alias art='php artisan'
+alias artisan='php artisan'
+
+# WordPress
+alias sage='cd web/app/themes/$(wp option get template)'
+
 # Git
 alias ga='git add'
 alias gm='git commit -m'
@@ -88,5 +90,3 @@ alias showdesktop='defaults write com.apple.finder CreateDesktop -bool true && k
 # Miscellaneous
 alias cask='brew cask'
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; cask upgrade; brew cleanup; cask cleanup;'
-alias q='exit'
-alias cls='clear'

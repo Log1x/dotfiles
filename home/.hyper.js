@@ -11,7 +11,7 @@ module.exports = {
     fontSize: 12,
 
     // font family with optional fallbacks
-    fontFamily: "Hack, Fira Code, Arial",
+    fontFamily: "Fira Code",
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: "rgba(255, 255, 255, 0.8)",

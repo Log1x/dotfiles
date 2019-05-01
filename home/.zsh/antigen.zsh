@@ -7,6 +7,7 @@ antigen use oh-my-zsh
 antigen bundle ssh-agent
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle command-not-found
 antigen bundle mafredri/zsh-async
 antigen bundle jocelynmallon/zshmarks
