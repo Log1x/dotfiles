@@ -9,14 +9,13 @@ alias forks='cd ~/Development/git/forks'
 
 # Apps
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
-alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
 
 # Replacements
-alias ls='exa -la'
-alias cat='bat'
-alias top='vtop'
-alias kill='fkill'
-alias find='fd'
+[[ -x "$(command -v exa)" ]] && alias ls='exa -la'
+[[ -x "$(command -v bat)" ]] && alias cat='bat'
+[[ -x "$(command -v vtop)" ]] && alias top='vtop'
+[[ -x "$(command -v fkill)" ]] && alias kill='fkill'
+[[ -x "$(command -v fd)" ]] && alias find='fd'
 
 # Always enable colored `grep` output
 alias grep='grep --color=auto'
@@ -69,9 +68,7 @@ alias s='bookmark'
 alias d='deletemark'
 alias lm='showmarks'
 
-# Empty the Trash on all mounted volumes and the main HDD.
-# Also, clear Apple’s System Logs to improve shell startup speed.
-# Finally, clear download history from quarantine.
+# Empty the Trash on all mounted volumes and clear system logs
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
 
 # Hide/show all desktop icons (useful when presenting)

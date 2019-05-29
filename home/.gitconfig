@@ -1,7 +1,7 @@
 [user]
-        email = brandon@tendency.me
-        name = Brandon
+  email = brandon@tendency.me
+  name = Brandon
 [hub]
-        protocol = ssh
+  protocol = ssh
 [core]
-        excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global

@@ -10,21 +10,25 @@ fi
 export TZ="America/Chicago"
 
 # Consistent default $PATH.
-export PATH=`cat /etc/paths | tr "\\n" ":" | sed 's/:$//'`
+[[ -r /etc/paths ]] && export PATH=`cat /etc/paths | tr "\\n" ":" | sed 's/:$//'`
 export PATH="/usr/local/sbin:${PATH}"
 export PATH="${HOME}/.local/bin:${PATH}"
 
+# Linux Brew if not on macOS.
+[[ -d ~/.linuxbrew ]] && eval $(~/.linuxbrew/bin/brew shellenv)
+[[ -d /home/linuxbrew/.linuxbrew ]] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
 # GNU Command Line Tools.
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:${PATH}"
+[[ -x "$(command -v brew)" ]] && export PATH="$(brew --prefix coreutils)/libexec/gnubin:${PATH}"
 
 # Dotfiles location.
-export DOTFILES=`homesick show_path dotfiles`
+[[ -x "$(command -v homesick)" ]] && export DOTFILES=`homesick show_path dotfiles`
 
 # Global Composer bin.
 export GLOBAL_COMPOSER_BIN="${HOME}/.composer/vendor/bin"
 
 # Global yarn bin.
-export GLOBAL_YARN_BIN="$(yarn global dir)/node_modules/.bin"
+[[ -x "$(command -v yarn)" ]] && export GLOBAL_YARN_BIN="$(yarn global dir)/node_modules/.bin"
 
 # Local node modules bin.
 export LOCAL_NODE_MODULES_BIN="./node_modules/.bin"

@@ -7,9 +7,6 @@
 # Config
 [[ -f ~/.zsh/config.zsh ]] && source ~/.zsh/config.zsh
 
-# Functions
-[[ -f ~/.zsh/functions.zsh ]] && source ~/.zsh/functions.zsh
-
 # Aliases
 [[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
 

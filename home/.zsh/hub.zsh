@@ -1,4 +1,4 @@
 # Use hub if it is available.
-if [ -r /usr/local/bin/hub ]; then
+[ -x "$(command -v hub)" ]; then
   eval "$(hub alias -s)"
 fi
