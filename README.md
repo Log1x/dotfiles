@@ -29,7 +29,7 @@ Import the theme located at `~/.themes/material-design-dark.itermcolors`
 ## Font
 
 ```sh
-brew cask install caskroom/fonts/font-fira-code
+$ brew cask install caskroom/fonts/font-fira-code
 ```
 
 ## Debug
