@@ -5,6 +5,12 @@ if not functions -q fisher
     fish -c fisher
 end
 
-for file in ~/.fish/*.fish
+for file in ~/.config/fish/*.fish
+    set filename (basename $file)
+
+    if test $filename = 'config.fish'
+        continue
+    end
+
     source $file
 end

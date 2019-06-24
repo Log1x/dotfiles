@@ -1,5 +1,8 @@
 *
-!fish/config.fish
+!fish/
+!fish/*.fish
 !fish/fishfile
+!valet/
 !valet/Drivers
+!valet/Drivers/*
 !.gitignore
