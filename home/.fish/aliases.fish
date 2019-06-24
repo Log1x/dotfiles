@@ -28,30 +28,22 @@ if type -q fd
     alias find='fd'
 end
 
-# Always enable colored `grep` output
+# Utilities
 alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-
-# Enable aliases to be sudo'ed
-alias sudo='sudo '
+alias g='git'
+alias sudo='sudo='
 
 # Print each PATH entry on a separate line
 alias path="echo -e ($PATH//:/\\n)"
 
-# IP addresses
+# Networking
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias localip='ipconfig getifaddr en0'
-alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-
-# Show active network interfaces
-alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
-
-# Flush Directory Service cache
-alias flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder; sudo killall mDNSResponderHelper'
+alias ifactive="ifconfig | pcregrep -M -o='^[^\t:]+:([^\n]|\n\t)*status: active'"
+alias flushdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder; sudo killall mDNSResponderHelper'
 
 # Recursively delete `.DS_Store` files
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+alias cleanup="find . -type f -name='*.DS_Store' -ls -delete"
 
 # Valet
 alias v='valet link && valet park && valet secure'
@@ -71,7 +63,7 @@ alias gp='git push'
 alias gpu='git pull'
 
 # Empty the Trash on all mounted volumes and clear system logs
-alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV*='delete from LSQuarantineEvent'"
 
 # Miscellaneous
 alias cask='brew cask'

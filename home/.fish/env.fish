@@ -24,7 +24,7 @@ end
 
 # Configure Yarn
 if type -q yarn
-    set PATH (yarn global dir)/node_modules/.bin ./node_modules/.bin $PATH
+    set PATH ~/.config/yarn/global/node_modules/.bin ./node_modules/.bin $PATH
 end
 
 # Configure Composer
