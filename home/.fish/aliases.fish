@@ -7,15 +7,26 @@ alias sites='cd ~/Development/web/'
 alias master='cd ~/Development/git/master'
 alias forks='cd ~/Development/git/forks'
 
-# Apps
-alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
-
 # Replacements
-[[ -x "$(command -v exa)" ]] && alias ls='exa -la'
-[[ -x "$(command -v bat)" ]] && alias cat='bat'
-[[ -x "$(command -v vtop)" ]] && alias top='vtop'
-[[ -x "$(command -v fkill)" ]] && alias kill='fkill'
-[[ -x "$(command -v fd)" ]] && alias find='fd'
+if type -q exa
+    alias ls='exa -a'
+end
+
+if type -q bat
+    alias cat='bat'
+end
+
+if type -q vtop
+    alias top='vtop'
+end
+
+if type -q fkill
+    alias kill='fkill'
+end
+
+if type -q fd
+    alias find='fd'
+end
 
 # Always enable colored `grep` output
 alias grep='grep --color=auto'
@@ -26,7 +37,7 @@ alias egrep='egrep --color=auto'
 alias sudo='sudo '
 
 # Print each PATH entry on a separate line
-alias path='echo -e ${PATH//:/\\n}'
+alias path="echo -e ($PATH//:/\\n)"
 
 # IP addresses
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
@@ -38,9 +49,6 @@ alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'
 
 # Flush Directory Service cache
 alias flush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder; sudo killall mDNSResponderHelper'
-
-# Clean up LaunchServices to remove duplicates in the “Open With” menu
-alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
@@ -54,7 +62,7 @@ alias art='php artisan'
 alias artisan='php artisan'
 
 # WordPress
-alias sage='cd web/app/themes/$(wp option get template)'
+alias sage="cd web/app/themes/(wp option get template)"
 
 # Git
 alias ga='git add'
@@ -62,18 +70,8 @@ alias gm='git commit -m'
 alias gp='git push'
 alias gpu='git pull'
 
-# zshmarks
-alias g='jump'
-alias s='bookmark'
-alias d='deletemark'
-alias lm='showmarks'
-
 # Empty the Trash on all mounted volumes and clear system logs
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
-
-# Hide/show all desktop icons (useful when presenting)
-alias hidedesktop='defaults write com.apple.finder CreateDesktop -bool false && killall Finder'
-alias showdesktop='defaults write com.apple.finder CreateDesktop -bool true && killall Finder'
 
 # Miscellaneous
 alias cask='brew cask'
