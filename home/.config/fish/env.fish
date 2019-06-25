@@ -18,7 +18,6 @@ end
 
 # Configure Homebrew
 if type -q brew
-    set PATH (brew --prefix coreutils)/libexec/gnubin $PATH
     set HOMEBREW_CASK_OPTS '--appdir=/Applications'
 end
 
