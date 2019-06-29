@@ -19,6 +19,7 @@ end
 # Configure Homebrew
 if type -q brew
     set HOMEBREW_CASK_OPTS '--appdir=/Applications'
+    set PATH (brew --prefix coreutils)/libexec/gnubin $PATH
 end
 
 # Configure Yarn

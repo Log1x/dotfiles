@@ -5,6 +5,7 @@ if not functions -q fisher
     fish -c fisher
 end
 
+# Environment
 for file in ~/.config/fish/*.fish
     set filename (basename $file)
 
