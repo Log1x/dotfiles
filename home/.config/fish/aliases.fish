@@ -31,10 +31,6 @@ end
 # Brew
 alias cask='brew cask'
 
-# Utilities
-alias g='git'
-alias sudo='sudo'
-
 # Valet
 alias v='valet link; and valet park; and valet secure'
 alias uv='valet unlink; and valet forget; and valet unsecure'
@@ -47,6 +43,7 @@ alias artisan='php artisan'
 alias sage="cd web/app/themes/(wp option get template)"
 
 # Git
+alias g='git'
 alias ga='git add'
 alias gm='git commit -m'
 alias gp='git push'
