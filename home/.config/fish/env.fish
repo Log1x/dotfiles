@@ -9,30 +9,35 @@ end
 # Central timezone.
 set -x TZ America/Chicago
 
-# Consistent default $PATH.
+# Initial Paths
 set PATH /usr/local/sbin ~/.local/bin $PATH
 
 if test -d /etc/paths
     set PATH (cat /etc/paths | tr "\\n" ":" | sed 's/:$//')
 end
 
-# Configure Homebrew
+# Homebrew
 if type -q brew
     set HOMEBREW_CASK_OPTS '--appdir=/Applications'
     set PATH (brew --prefix coreutils)/libexec/gnubin $PATH
 end
 
-# Configure Yarn
+# Yarn
 if type -q yarn
     set PATH ~/.config/yarn/global/node_modules/.bin ./node_modules/.bin $PATH
 end
 
-# Configure Composer
+# Composer
 if type -q composer
     set PATH ~/.composer/vendor/bin ./vendor/bin $PATH
 end
 
-# Configure Hub
+# Cargo
+if type -q cargo 
+    set PATH ~/.cargo/bin $PATH
+end
+
+# Hub
 if type -q hub
     eval (hub alias -s)
 end
