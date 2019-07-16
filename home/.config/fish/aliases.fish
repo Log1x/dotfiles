@@ -39,8 +39,8 @@ alias uv='valet unlink; and valet forget; and valet unsecure'
 alias art='php artisan'
 alias artisan='php artisan'
 
-# WordPress
-alias sage="cd web/app/themes/(wp option get template)"
+# Roots
+alias acorn='wp acorn'
 
 # Git
 alias g='git'

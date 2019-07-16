@@ -79,7 +79,6 @@ module.exports = {
     "hyper-statusline",
     "hyperlinks",
     "hypercwd",
-    "hyperterm-1password"
   ],
 
   // Keybinds
