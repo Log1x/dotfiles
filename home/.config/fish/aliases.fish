@@ -30,6 +30,7 @@ end
 
 # Brew
 alias cask='brew cask'
+alias service='brew services'
 
 # Valet
 alias v='valet link; and valet park; and valet secure'
