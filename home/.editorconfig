@@ -11,5 +11,11 @@ insert_final_newline = true
 [*.fish]
 indent_size = 4
 
+[*.php]
+indent_size = 4
+
+[*.blade.php]
+indent_size = 2
+
 [*.md]
 trim_trailing_whitespace = false
