@@ -49,3 +49,6 @@ alias ga='git add'
 alias gm='git commit -m'
 alias gp='git push'
 alias gpu='git pull'
+
+# Miscellaneous
+alias sudo='sudo '
