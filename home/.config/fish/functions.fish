@@ -13,27 +13,27 @@ end
 
 # Flush DNS
 function flushdns
-    echo ✅  Flushing Cache
+    echo '✅  Flushing Cache'
     command sudo dscacheutil -flushcache
 
-    echo ✅  Restarting DNS Services
+    echo '✅  Restarting DNS Services'
     command sudo killall -HUP mDNSResponder; and sudo killall mDNSResponderHelper
 end
 
 # Upgrade System
 function update
-    echo ✅  Upgrading System Apps...
+    echo '✅  Upgrading System Apps...'
     command sudo softwareupdate -i -a
 
-    echo ✅  Updating Brew Taps
+    echo '✅  Updating Brew Taps'
     command brew update
 
-    echo ✅  Upgrading Brew Apps
+    echo '✅  Upgrading Brew Apps'
     command brew upgrade
 
-    echo ✅  Upgrading Cask Apps
+    echo '✅  Upgrading Cask Apps'
     command brew cask upgrade
 
-    echo ✅  Running Cleanup
+    echo '✅  Running Cleanup'
     command brew cleanup
 end

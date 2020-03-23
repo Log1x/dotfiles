@@ -6,3 +6,4 @@
 !valet/Drivers
 !valet/Drivers/*
 !.gitignore
+!keyboard.json

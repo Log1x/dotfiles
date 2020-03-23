@@ -8,6 +8,7 @@
 [core]
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
+	ignorecase = false
 
 [url "git@github.com:"]
 	insteadOf = "gh:"

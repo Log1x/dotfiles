@@ -15,3 +15,5 @@ for file in ~/.config/fish/*.fish
 
     source $file
 end
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish ; or true
+
