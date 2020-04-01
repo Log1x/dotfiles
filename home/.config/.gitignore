@@ -2,6 +2,8 @@
 !fish/
 !fish/*.fish
 !fish/fishfile
+!iterm2/
+!iterm2/*.plist
 !valet/
 !valet/Drivers
 !valet/Drivers/*
