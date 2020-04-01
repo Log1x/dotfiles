@@ -670,7 +670,7 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>119 504 918 423 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>191 124 570 403 0 0 1680 1027 </string>
+	<string>221 208 570 417 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>40 51 570 492 0 0 1680 1027 </string>
 	<key>New Bookmarks</key>
@@ -1028,7 +1028,7 @@
 			<key>Initial Text</key>
 			<string></string>
 			<key>Initial Use Transparency</key>
-			<true/>
+			<false/>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -1411,7 +1411,7 @@
 			<key>Title Components</key>
 			<integer>3</integer>
 			<key>Transparency</key>
-			<real>0.0091370558375634507</real>
+			<real>0.004407915609137056</real>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
@@ -1459,7 +1459,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>1B437F8B-173B-43D3-A4D7-FF8CDD5E7FEF</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>51</integer>
+	<integer>52</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
