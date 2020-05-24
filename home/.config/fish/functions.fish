@@ -16,7 +16,7 @@ function flushdns
     echo '✅  Flushing Cache'
     command sudo dscacheutil -flushcache
 
-    echo '✅  Restarting DNS Services'
+    echo '✅  Killing DNS Services'
     command sudo killall -HUP mDNSResponder; and sudo killall mDNSResponderHelper
 end
 
