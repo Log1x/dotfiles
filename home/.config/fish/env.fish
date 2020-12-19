@@ -14,6 +14,7 @@ set -gx LANG en_US.UTF-8
 set -gx TZ America/Chicago
 
 # Initial Paths
+set PATH /opt/homebrew/bin $PATH
 set PATH /usr/local/sbin $PATH
 set PATH ~/.local/bin $PATH
 

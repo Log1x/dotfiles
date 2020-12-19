@@ -2,6 +2,7 @@
 !fish/
 !fish/*.fish
 !fish/fishfile
+!fish/fish_plugins
 !iterm2/
 !iterm2/*.plist
 !valet/

@@ -10,6 +10,9 @@
   attributesfile = ~/.gitattributes
 	ignorecase = false
 
+[pull]
+	rebase = false
+
 [url "git@github.com:"]
 	insteadOf = "gh:"
 	pushInsteadOf = "github:"
