@@ -1,22 +1,20 @@
 <?php
 
-/**
- * HtDocs Larvel Valet Driver
- *
- * Supports static HtDocs within a project root.
- */
+namespace Valet\Drivers\Custom;
+
+use Valet\Drivers\ValetDriver;
+
 class HtDocsValetDriver extends ValetDriver
 {
     /**
-     * Serve a generic request if a `htdocs/index.php`
-     * exists in the site path.
+     * Determine if the driver serves the request.
      *
-     * @param   string  $sitePath
-     * @param   string  $siteName
-     * @param   string  $uri
-     * @return  bool
+     * @param  string $sitePath
+     * @param  string $siteName
+     * @param  string $uri
+     * @return bool
      */
-    public function serves($sitePath, $siteName, $uri)
+    public function serves(string $sitePath, string $siteName, string $uri): bool
     {
         if (file_exists($sitePath . '/htdocs/index.php')) {
             return true;
@@ -24,7 +22,6 @@ class HtDocsValetDriver extends ValetDriver
 
         return false;
     }
-
 
     /**
      * Determine if the incoming request is static.
@@ -34,7 +31,7 @@ class HtDocsValetDriver extends ValetDriver
      * @param   string        $uri
      * @return  string|false
      */
-    public function isStaticFile($sitePath, $siteName, $uri)
+    public function isStaticFile(string $sitePath, string $siteName, string $uri)
     {
         if (file_exists($staticFilePath = $sitePath . '/htdocs/' . $uri)) {
             return $staticFilePath;
@@ -42,7 +39,6 @@ class HtDocsValetDriver extends ValetDriver
 
         return false;
     }
-
 
     /**
      * Get the fully resolved path to the application's front controller.
@@ -52,7 +48,7 @@ class HtDocsValetDriver extends ValetDriver
      * @param   string  $uri
      * @return  string
      */
-    public function frontControllerPath($sitePath, $siteName, $uri)
+    public function frontControllerPath(string $sitePath, string $siteName, string $uri): string
     {
         return $sitePath . '/htdocs/index.php';
     }

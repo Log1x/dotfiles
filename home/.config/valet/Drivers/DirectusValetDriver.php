@@ -1,16 +1,11 @@
 <?php
 
+namespace Valet\Drivers\Custom;
+
+use Valet\Drivers\ValetDriver;
+
 class DirectusValetDriver extends ValetDriver
 {
-    public function parseUrl($uri)
-    {
-        $URL = parse_url($uri);
-        $URL['parts'] = explode('/', trim($URL['path'], '/'));
-        $URL['first'] = reset($URL['parts']);
-        $URL['last'] = end($URL['parts']);
-        return $URL;
-    }
-
     /**
      * Determine if the driver serves the request.
      *
@@ -19,9 +14,9 @@ class DirectusValetDriver extends ValetDriver
      * @param  string  $uri
      * @return bool
      */
-    public function serves($sitePath, $siteName, $uri)
+    public function serves(string $sitePath, string $siteName, string $uri): bool
     {
-        return file_exists($sitePath.'/bin/directus');
+        return file_exists($sitePath . '/bin/directus');
     }
 
     /**
@@ -32,17 +27,17 @@ class DirectusValetDriver extends ValetDriver
      * @param  string  $uri
      * @return string|false
      */
-    public function isStaticFile($sitePath, $siteName, $uri)
+    public function isStaticFile(string $sitePath, string $siteName, string $uri)
     {
         if ($uri === '/admin') {
             return false;
         }
 
-        if (file_exists($staticFilePath = $sitePath.'/public/admin'.$uri)) {
+        if (file_exists($staticFilePath = $sitePath . '/public/admin' . $uri)) {
             return $staticFilePath;
         }
 
-        if (file_exists($staticFilePath = $sitePath.'/public'.$uri)) {
+        if (file_exists($staticFilePath = $sitePath . '/public' . $uri)) {
             return $staticFilePath;
         }
 
@@ -57,7 +52,7 @@ class DirectusValetDriver extends ValetDriver
      * @param  string  $uri
      * @return string
      */
-    public function frontControllerPath($sitePath, $siteName, $uri)
+    public function frontControllerPath(string $sitePath, string $siteName, string $uri): string
     {
         $url = $this->parseUrl($uri);
 
@@ -66,13 +61,29 @@ class DirectusValetDriver extends ValetDriver
         }
 
         if ($url['first'] === 'api') {
-            if (strpos($url['path'], 'api/extensions') !== false) {
-                return $sitePath.'/public/api.php?run_extension=' . implode('/', array_slice($url['parts'], 2));
-            } else {
-                return $sitePath.'/public/api.php?run_api_router=1';
-            }
+            return strpos($url['path'], 'api/extensions') !== false ?
+                $sitePath . '/public/api.php?run_extension=' . implode('/', array_slice($url['parts'], 2)) :
+                $sitePath . '/public/api.php?run_api_router=1';
         }
 
-        return $sitePath.'/public/index.php';
+        return $sitePath . '/public/index.php';
+    }
+
+    /**
+     * Parse the specified URI.
+     *
+     * @param  string $uri
+     * @return array
+     */
+    public function parseUrl(string $uri): array
+    {
+        $url = parse_url($uri);
+        $path = explode('/', trim($url['path'], '/'));
+
+        return array_merge($url, [
+            'parts' => $path,
+            'first' => reset($path),
+            'last' => end($path),
+        ]);
     }
 }

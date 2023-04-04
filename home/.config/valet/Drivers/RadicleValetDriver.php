@@ -4,7 +4,7 @@ namespace Valet\Drivers\Custom;
 
 use Valet\Drivers\ValetDriver;
 
-class TrellisValetDriver extends ValetDriver
+class RadicleValetDriver extends ValetDriver
 {
     /**
      * Determine if the driver serves the request.
@@ -16,11 +16,9 @@ class TrellisValetDriver extends ValetDriver
      */
     public function serves(string $sitePath, string $siteName, string $uri): bool
     {
-        return file_exists($sitePath . '/site/web/app/mu-plugins/bedrock-autoloader.php') || (
-            is_dir($sitePath . '/site/web/app/') &&
-            file_exists($sitePath . '/site/web/wp-config.php') &&
-            file_exists($sitePath . '/site/config/application.php')
-        );
+        return file_exists($sitePath . '/public/content/mu-plugins/bedrock-autoloader.php') &&
+               file_exists($sitePath . '/public/wp-config.php') &&
+               file_exists($sitePath . '/bedrock/application.php');
     }
 
     /**
@@ -33,7 +31,7 @@ class TrellisValetDriver extends ValetDriver
      */
     public function isStaticFile(string $sitePath, string $siteName, string $uri)
     {
-        $staticFilePath = $sitePath . '/site/web' . $uri;
+        $staticFilePath = $sitePath . '/public' . $uri;
 
         if ($this->isActualFile($staticFilePath)) {
             return $staticFilePath;
@@ -43,24 +41,24 @@ class TrellisValetDriver extends ValetDriver
     }
 
     /**
-     * Determine if the incoming request is for a static file.
+     * Get the fully resolved path to the application's front controller.
      *
-     * @param  string       $sitePath
-     * @param  string       $siteName
-     * @param  string       $uri
-     * @return string|false
+     * @param  string $sitePath
+     * @param  string $siteName
+     * @param  string $uri
+     * @return string
      */
     public function frontControllerPath(string $sitePath, string $siteName, string $uri): string
     {
         $_SERVER['PHP_SELF'] = $uri;
 
         if (strpos($uri, '/wp/') === 0) {
-            return is_dir($sitePath . '/site/web' . $uri)
-                ? $sitePath . '/site/web' . $this->forceTrailingSlash($uri) . '/index.php'
-                : $sitePath . '/site/web' . $uri;
+            return is_dir($sitePath . '/public' . $uri)
+                ? $sitePath . '/public' . $this->forceTrailingSlash($uri) . '/index.php'
+                : $sitePath . '/public' . $uri;
         }
 
-        return $sitePath . '/site/web/index.php';
+        return $sitePath . '/public/index.php';
     }
 
     /**

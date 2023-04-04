@@ -1,9 +1,10 @@
 <?php
 
-/**
- * NextValetDriver for running compiled next.js sites
- */
-class NextValetDriver extends BasicValetDriver
+namespace Valet\Drivers\Custom;
+
+use Valet\Drivers\ValetDriver;
+
+class NextValetDriver extends ValetDriver
 {
     /**
      * Determine if the driver serves the request.
@@ -13,7 +14,7 @@ class NextValetDriver extends BasicValetDriver
      * @param  string  $uri
      * @return bool
      */
-    public function serves($sitePath, $siteName, $uri)
+    public function serves(string $sitePath, string $siteName, string $uri): bool
     {
         return is_dir($sitePath . '/out/_next');
     }
@@ -26,36 +27,36 @@ class NextValetDriver extends BasicValetDriver
      * @param  string  $uri
      * @return string
      */
-    public function frontControllerPath($sitePath, $siteName, $uri)
+    public function frontControllerPath(string $sitePath, string $siteName, string $uri): string
     {
-
-        $_SERVER['PHP_SELF']    = $uri;
+        $_SERVER['PHP_SELF'] = $uri;
         $_SERVER['SERVER_ADDR'] = '127.0.0.1';
         $_SERVER['SERVER_NAME'] = $_SERVER['HTTP_HOST'];
 
         return parent::frontControllerPath($sitePath, $siteName, '/out' . $uri);
     }
 
+    /**
+     * Determine if the incoming request is for a static file.
+     *
+     * @param  string       $sitePath
+     * @param  string       $siteName
+     * @param  string       $uri
+     * @return string|false
+     */
     public function isStaticFile($sitePath, $siteName, $uri)
     {
-        // handle subfolder index pages
-        $try_html = $sitePath . '/out' . $uri . '/index.html';
-        if (file_exists($try_html)) {
-            return $try_html;
+        if (file_exists($staticFilePath = $sitePath . '/out' . $uri . '/index.html')) {
+            return $staticFilePath;
         }
 
-        // handle public static files
-        $try_uri = $sitePath . '/out' . $uri;
-        if (file_exists($try_uri)) {
-            return $try_uri;
+        if (file_exists($staticFilePath = $sitePath . '/out' . $uri)) {
+            return $staticFilePath;
         }
 
-        // handle the component files
-        $path = '_next/';
-        if (false !== ($pos = stripos($uri, '/' . $path))) {
-            $new_uri = '/out' . substr($uri, $pos);
-            if (file_exists($sitePath . $new_uri)) {
-                return $sitePath . $new_uri;
+        if (($path = stripos($uri, '/' . '_next/')) !== false) {
+            if (file_exists($staticFilePath = $sitePath . '/out' . substr($uri, $path))) {
+                return $staticFilePath;
             }
         }
 

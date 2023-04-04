@@ -1,25 +1,20 @@
 <?php
 
-/**
- * VuePress Larvel Valet Driver
- *
- * Supports VuePress within the projects root or the `docs` directory.
- */
+namespace Valet\Drivers\Custom;
+
+use Valet\Drivers\ValetDriver;
+
 class VuePressValetDriver extends ValetDriver
 {
     /**
-     * Serves
+     * Determine if the driver serves the request.
      *
-     * Determines if the driver serves the request by Checking for a
-     * `.vuepress/config.js` file within the project root directory or within
-     * the `/docs/` directory.
-     *
-     * @param   string  $sitePath
-     * @param   string  $siteName
-     * @param   string  $uri
-     * @return  bool
+     * @param  string $sitePath
+     * @param  string $siteName
+     * @param  string $uri
+     * @return bool
      */
-    public function serves($sitePath, $siteName, $uri)
+    public function serves(string $sitePath, string $siteName, string $uri): bool
     {
         if (
             file_exists($sitePath . '/.vuepress/config.js') ||
@@ -31,18 +26,15 @@ class VuePressValetDriver extends ValetDriver
         return false;
     }
 
-
     /**
-     * isStaticFile
-     *
      * Determine if the incoming request is for a static file.
      *
-     * @param   string        $sitePath
-     * @param   string        $siteName
-     * @param   string        $uri
-     * @return  string|false
+     * @param  string       $sitePath
+     * @param  string       $siteName
+     * @param  string       $uri
+     * @return string|false
      */
-    public function isStaticFile($sitePath, $siteName, $uri)
+    public function isStaticFile(string $sitePath, string $siteName, string $uri)
     {
         if (
             file_exists($staticFilePath = $sitePath . '/.vuepress/dist/' . $uri) ||
@@ -54,18 +46,15 @@ class VuePressValetDriver extends ValetDriver
         return false;
     }
 
-
     /**
-     * frontControllerPath
+     * Determine if the incoming request is for a static file.
      *
-     * Get the fully resolved path to the application's front controller.
-     *
-     * @param   string  $sitePath
-     * @param   string  $siteName
-     * @param   string  $uri
-     * @return  string
+     * @param  string       $sitePath
+     * @param  string       $siteName
+     * @param  string       $uri
+     * @return string|false
      */
-    public function frontControllerPath($sitePath, $siteName, $uri)
+    public function frontControllerPath(string $sitePath, string $siteName, string $uri): string
     {
         if (file_exists($sitePath . '/.vuepress/config.js')) {
             return $sitePath . '/.vuepress/dist/index.html';
