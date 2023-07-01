@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>CompactMinimalTabBarHeight</key>
 	<real>38</real>
 	<key>ConvertTabDragToWindowDragForSolitaryTabInCompactOrMinimalTheme</key>
@@ -1419,8 +1421,6 @@
 		</dict>
 	</dict>
 	<key>PreserveWindowSizeWhenTabBarVisibilityChanges</key>
-	<false/>
-	<key>PreventEscapeSequenceFromClearingHistory</key>
 	<false/>
 	<key>Print In Black And White</key>
 	<true/>
