@@ -35,7 +35,7 @@ end
 
 # Composer
 if type -q composer
-    set PATH ~/.composer/vendor/bin ./vendor/bin $PATH
+    set PATH ~/.config/composer/vendor/bin ~/.composer/vendor/bin ./vendor/bin $PATH
 end
 
 # Cargo
