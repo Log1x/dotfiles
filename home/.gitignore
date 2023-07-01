@@ -24,3 +24,4 @@ Thumbs.db
 # Environment
 .vscode
 .env
+.idea
