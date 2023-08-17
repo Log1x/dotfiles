@@ -28,9 +28,20 @@ if type -q brew
     set PATH (brew --prefix coreutils)/libexec/gnubin $PATH
 end
 
-# Yarn
-if type -q yarn
-    set PATH ~/.config/yarn/global/node_modules/.bin ./node_modules/.bin $PATH
+# Herd
+if test -e /Applications/Herd.app
+    set PATH $HOME/Library/Application\ Support/Herd/bin/ $PATH
+end
+
+# DBngin
+if test -e /Applications/DBngin.app
+    set PATH /Users/Shared/DBngin/mysql/8.0.33/bin $PATH
+end
+
+# Volta
+if type -q volta
+    set -gx VOLTA_HOME "$HOME/.volta"
+    set -gx PATH "$VOLTA_HOME/bin" $PATH
 end
 
 # Composer
@@ -39,7 +50,7 @@ if type -q composer
 end
 
 # Cargo
-if type -q cargo
+if type -q rustup-init
     set PATH ~/.cargo/bin $PATH
 end
 
